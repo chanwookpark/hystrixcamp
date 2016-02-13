@@ -1,4 +1,4 @@
-package hystrixcamp.app;
+package hystrixcamp.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @SpringBootApplication
 @RestController
-public class AppToApp {
+public class AdminApp {
     public static void main(String[] args) {
-        SpringApplication.run(AppToApp.class, args);
+        SpringApplication.run(AdminApp.class, args);
     }
 
     @RequestMapping("/")
