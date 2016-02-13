@@ -1,6 +1,10 @@
-package hystrixcamp.app.product;
+package hystrixcamp.app.product.service;
 
 import hystrixcamp.app.common.ApiModel;
+import hystrixcamp.app.product.ProductViewModel;
+import hystrixcamp.app.product.api.ProductApiClient;
+import hystrixcamp.app.product.api.ProductBase;
+import hystrixcamp.app.product.api.ProductRealTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

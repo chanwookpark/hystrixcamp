@@ -1,4 +1,4 @@
-package hystrixcamp.app.product;
+package hystrixcamp.app.product.api;
 
 import hystrixcamp.app.common.ApiModel;
 

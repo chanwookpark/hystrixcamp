@@ -1,4 +1,4 @@
-package hystrixcamp.app.product;
+package hystrixcamp.app.product.api;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;

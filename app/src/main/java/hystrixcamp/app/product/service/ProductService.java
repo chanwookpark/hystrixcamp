@@ -1,4 +1,6 @@
-package hystrixcamp.app.product;
+package hystrixcamp.app.product.service;
+
+import hystrixcamp.app.product.ProductViewModel;
 
 /**
  * @author chanwook
