@@ -6,17 +6,25 @@
 </head>
 <body>
 
-<h2>{prd.base.productName}</h2>
 
+{#prd}
 <div>
-    <ul>
-        <li><p><b>{prd.realTime.stock}</b>개 남았어요!</p></li>
-        <li><p>소비자가격: <b>{prd.realTime.retailPrice}</b></p></li>
-        <li><p>판매가격: <b>{prd.realTime.salesPrice}</b></p></li>
-    </ul>
-</div>
+    <div>
+        <h2>{base.productName}</h2>
+        <ul>
+            <li><p><b>{realTime.stock}</b>개 남았어요!</p></li>
+            <li><p>소비자가격: <b>{realTime.retailPrice}</b></p></li>
+            <li><p>판매가격: <b>{realTime.salesPrice}</b></p></li>
+        </ul>
+    </div>
 
-<input type="hidden" value="{prd.base.productId}"/>
+    <div>
+        <p><a href="/product/coupon/view/{coupon.couponId}" target="_blank">사용가능한 쿠폰이 있습니다 - {coupon.couponName}</a></p>
+    </div>
+
+    <input type="hidden" value="{base.productId}"/>
+</div>
+{/prd}
 
 </body>
 </html>
