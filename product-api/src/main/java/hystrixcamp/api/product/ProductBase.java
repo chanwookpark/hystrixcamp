@@ -5,16 +5,16 @@ import java.io.Serializable;
 /**
  * @author chanwook
  */
-public class Product implements Serializable {
+public class ProductBase implements Serializable {
 
     private String productId;
 
     private String productName;
 
-    public Product() {
+    public ProductBase() {
     }
 
-    public Product(String productId, String productName) {
+    public ProductBase(String productId, String productName) {
         this.productId = productId;
         this.productName = productName;
     }

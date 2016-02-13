@@ -11,9 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProductApiController {
 
-    @RequestMapping(value = "/product/{productId}", method = RequestMethod.GET)
-    public Product getProduct(@PathVariable("productId") String pid) {
+    @RequestMapping(value = "/base/{productId}", method = RequestMethod.GET)
+    public ProductBase getBase(@PathVariable("productId") String pid) {
 
-        return new Product(pid, "테스트 상품");
+        return new ProductBase(pid, "테스트 상품");
+    }
+
+    @RequestMapping(value = "/realtime/{productId}", method = RequestMethod.GET)
+    public ProductRealTime getRealTime(@PathVariable("productId") String pid) {
+
+        return new ProductRealTime(pid, 100, 90, 10);
     }
 }

@@ -8,6 +8,14 @@
 
 <h2>{prd.base.productName}</h2>
 
+<div>
+    <ul>
+        <li><p><b>{prd.realTime.stock}</b>개 남았어요!</p></li>
+        <li><p>소비자가격: <b>{prd.realTime.retailPrice}</b></p></li>
+        <li><p>판매가격: <b>{prd.realTime.salesPrice}</b></p></li>
+    </ul>
+</div>
+
 <input type="hidden" value="{prd.base.productId}"/>
 
 </body>
