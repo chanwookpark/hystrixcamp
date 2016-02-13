@@ -18,7 +18,7 @@ public class ProductViewController {
     @RequestMapping("/product/{productId}")
     public String getProductView(@PathVariable("productId") String pid, ModelMap model) {
 
-        Product product = service.getProduct(pid);
+        ProductViewModel product = service.getProduct(pid);
 
         model.put("prd", product);
         return "productMain";

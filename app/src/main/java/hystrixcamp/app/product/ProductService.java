@@ -5,6 +5,6 @@ package hystrixcamp.app.product;
  */
 public interface ProductService {
 
-    Product getProduct(String pid);
+    ProductViewModel getProduct(String pid);
 
 }

@@ -22,8 +22,8 @@ public class ProductApiClient {
     @HystrixCommand(threadPoolProperties = {
             @HystrixProperty(name = "coreSize", value = "30")},
             commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "500")})
-    public Product getProduct(String productId) {
-        final ResponseEntity<Product> response = restTemplate.getForEntity("http://localhost:9003/product/{}", Product.class, productId);
+    public ProductBase getProduct(String productId) {
+        final ResponseEntity<ProductBase> response = restTemplate.getForEntity("http://localhost:9003/product/{}", ProductBase.class, productId);
 
         if (logger.isDebugEnabled()) {
             logger.debug("> Get Product Entity: " + response);

@@ -5,5 +5,5 @@ import hystrixcamp.app.common.ViewModel;
 /**
  * @author chanwook
  */
-public class Product extends ViewModel {
+public class ProductViewModel extends ViewModel {
 }

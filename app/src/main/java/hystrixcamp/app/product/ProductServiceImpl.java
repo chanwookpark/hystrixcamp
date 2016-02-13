@@ -13,13 +13,19 @@ public class ProductServiceImpl implements ProductService {
     ProductApiClient productApiClient;
 
     @Override
-    public Product getProduct(String pid) {
-        Product product = productApiClient.getProduct(pid);
+    public ProductViewModel getProduct(String pid) {
+        ProductViewModel model = new ProductViewModel();
 
-        if (product == null) {
+        loadBaseOfProduct(pid, model);
+
+        return model;
+    }
+
+    private void loadBaseOfProduct(String pid, ProductViewModel model) {
+        ProductBase base = productApiClient.getProduct(pid);
+        if (base == null) {
             throw new ProductNotFoundException(pid + "에 해당하는 상품이 존재하지 않습니다.");
         }
-
-        return product;
+        model.put("base", base);
     }
 }
