@@ -1,8 +1,12 @@
 package hystrixcamp.app.product;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @author chanwook
@@ -12,14 +16,18 @@ public class ProductApiClient {
 
     private final Logger logger = LoggerFactory.getLogger(ProductApiClient.class);
 
-    public Product getProduct(String pid) {
-        final GetProductBaseCommand command = new GetProductBaseCommand(pid);
-        final Product result = command.execute();
+    RestTemplate restTemplate = new RestTemplate();
+
+    // GroupKey는 클래스명, CommandKey는 메서드 명이 기본값
+    @HystrixCommand(threadPoolProperties = {
+            @HystrixProperty(name = "coreSize", value = "30")},
+            commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "500")})
+    public Product getProduct(String productId) {
+        final ResponseEntity<Product> response = restTemplate.getForEntity("http://localhost:9003/product/{}", Product.class, productId);
 
         if (logger.isDebugEnabled()) {
-            logger.debug("> Get Product : " + result);
+            logger.debug("> Get Product Entity: " + response);
         }
-
-        return result;
+        return response.getBody();
     }
 }
