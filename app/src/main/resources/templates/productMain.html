@@ -26,5 +26,20 @@
 </div>
 {/prd}
 
+<div>
+    <h3>구매자 리뷰</h3>
+
+    {#reviewList}
+    <ul>
+        <li><p>
+            <b>{reviewer} ({updated})</b>
+            <blockquote>{contents}</blockquote>
+            </p>
+        </li>
+    </ul>
+    {/reviewList}
+
+</div>
+
 </body>
 </html>

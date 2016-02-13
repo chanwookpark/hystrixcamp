@@ -1,12 +1,12 @@
 package hystrixcamp.app.product.service;
 
-import hystrixcamp.app.product.ProductViewModel;
+import hystrixcamp.app.product.Product;
 
 /**
  * @author chanwook
  */
 public interface ProductService {
 
-    ProductViewModel getProduct(String pid);
+    Product getProduct(String pid);
 
 }

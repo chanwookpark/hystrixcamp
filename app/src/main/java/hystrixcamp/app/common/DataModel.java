@@ -5,6 +5,6 @@ import java.util.HashMap;
 /**
  * @author chanwook
  */
-public class ViewModel extends HashMap<String, Object> {
+public class DataModel extends HashMap<String, Object> {
 
 }
