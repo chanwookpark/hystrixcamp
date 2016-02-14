@@ -17,13 +17,13 @@ public class ProductApiClient {
     RestTemplate restTemplate = new RestTemplate();
 
     // GroupKey는 클래스명, CommandKey는 메서드 명이 기본값
-    @HystrixCommand(threadPoolProperties = {@HystrixProperty(name = "coreSize", value = "30")})
+    @HystrixCommand(threadPoolKey = "getBaseAttribute", threadPoolProperties = {@HystrixProperty(name = "coreSize", value = "50")})
     public ProductBase getBaseAttribute(String productId) {
         final ResponseEntity<ProductBase> response = restTemplate.getForEntity(HOST + "/product/base/{0}", ProductBase.class, productId);
         return response.getBody();
     }
 
-    @HystrixCommand(commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000")})
+    @HystrixCommand(threadPoolKey = "getRealTimeAttribute", threadPoolProperties = {@HystrixProperty(name = "coreSize", value = "50")}, commandProperties = {@HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "1000")})
     public ProductRealTime getRealTimeAttribute(String pid) {
         final ResponseEntity<ProductRealTime> response = restTemplate.getForEntity(HOST + "/product/realtime/{0}", ProductRealTime.class, pid);
         return response.getBody();
